@@ -1,0 +1,28 @@
+{{ define "main" }}
+<h1>{{ .Page.Title }}</h1>
+<br/>
+{{ .Content }}
+
+{{ range $index, $element := where .Site.Pages "Section" "generators" }}
+
+{{- $title := .Params.title -}}
+{{ with .Params.repo }}
+{{ $param_repo := . }}
+{{ $fullurl :=  $param_repo | path.Split }}
+
+{{$index}},{{ strings.TrimRight "/" $fullurl.Dir }},{{$fullurl.File }},{{ $title }}
+
+<br>
+{{ end }}
+
+{{ end }}
+
+
+
+
+
+<!-- print the 'repo' front matter by accessing the .Params object of section 'generators' -->
+
+
+
+{{ end }}

@@ -1,0 +1,21 @@
+baseurl = "https://example.com/"
+title = "console-demo"
+theme = "hugo-theme-console"
+languageCode = "en-us"
+
+[params]
+  # Cutting off the page title to two chars for mobile (console-demo -> co)
+  titleCutting = true
+
+  # Set the animation style -- https://animate.style/
+  # To disable animations, please remove or comment animationStyle parameter
+  animateStyle = "animated zoomIn fast" 
+
+
+# output formats
+# for the generators section, output csv files as well
+disableKinds = ['page']
+[outputs]
+    home                   = ["HTML"]
+    section                = ["HTML", "CSV" ]
+    page = []

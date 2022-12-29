@@ -1,0 +1,10 @@
+{{- $x := .CurrentSection -}}
+{{- printf "%s" "Sl,User,Repo,Title" }}
+{{- range $index, $element := .CurrentSection.RegularPages -}}
+{{- $title := .Params.title -}}
+{{- with .Params.repo -}}
+{{- $param_repo := . -}}
+{{- $fullurl :=  $param_repo | path.Split }}
+{{ $index }},{{ strings.TrimRight "/" $fullurl.Dir }},{{$fullurl.File }},{{ $title }}
+{{- end -}}
+{{- end -}}
